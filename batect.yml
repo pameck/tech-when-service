@@ -1,0 +1,27 @@
+project_name: techwhen-service
+
+containers:
+  build-env:
+    image: openjdk:8
+    volumes:
+      - local: .
+        container: /usr/src/app
+        options: cached
+    working_directory: /usr/src/app
+
+tasks: 
+  test:
+    description: Runs the tests
+    run:
+      container: build-env
+      command: ./gradlew check
+  continuousTest:
+    description: Runs the tests continuously
+    run:
+      container: build-env
+      command: ./gradlew --continuous check
+  build:
+    description: Builds the app
+    run:
+      container: build-env
+      command: ./gradlew build

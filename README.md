@@ -4,16 +4,16 @@ TechWhen is a thing, what is it? We don't know yet, but it is a thing.
 
 ## Requires
 
-* Java 8 or higher
+* Docker
 
 ## Usage
 
 ### Building the application
-`./gradlew build`
+`./batect build`
 
 ### Running the tests
-`./gradlew check`
+`./batect check`
 
 Or, to run the tests once and then automatically re-run them when the code changes:
 
-`./gradlew --continuous check`
+`./batect --continuous check`
