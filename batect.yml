@@ -9,7 +9,15 @@ containers:
         options: cached
     working_directory: /usr/src/app
 
-tasks: 
+  deploy-env:
+    build_directory: deploy-env
+    volumes:
+      - local: .
+        container: /usr/src/app
+        options: cached
+    working_directory: /usr/src/app
+
+tasks:
   test:
     description: Runs the tests
     run:
@@ -25,3 +33,10 @@ tasks:
     run:
       container: build-env
       command: ./gradlew build
+  deploy:
+    run:
+      container: deploy-env
+      command: serverless deploy
+      environment:
+        - AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID
+        - AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
