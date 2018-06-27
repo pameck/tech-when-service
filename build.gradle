@@ -2,6 +2,7 @@ buildscript {
 	ext.kotlin_version = '1.2.31'
 	ext.junit_version = '1.1.1'
 	ext.spek_version = '1.1.5'
+	ext.jackson_kotlin_version = '2.9.+'
 
 	dependencies {
 		classpath "org.junit.platform:junit-platform-gradle-plugin:$junit_version"
@@ -41,6 +42,8 @@ dependencies {
 	testRuntime "org.jetbrains.spek:spek-junit-platform-engine:$spek_version"
 	testRuntime "org.junit.platform:junit-platform-runner:$junit_version"
 	compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+
+	compile "com.fasterxml.jackson.module:jackson-module-kotlin:$jackson_kotlin_version"
 
 }
 

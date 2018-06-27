@@ -1,4 +1,4 @@
-project_name: techwhen-service
+project_name: throwaway-kotlin-lambda
 
 containers:
   build-env:
