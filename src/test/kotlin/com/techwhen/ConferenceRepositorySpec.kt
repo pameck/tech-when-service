@@ -12,9 +12,8 @@ object ConferenceRepositorySpec : Spek({
 
         on("finding all") {
             val result = ConferenceRepository.findAll()
-
             it("returns a list of conferences") {
-                assertThat(result.size, equalTo(1))
+                assertThat(result.size, equalTo(3))
             }
         }
     }
