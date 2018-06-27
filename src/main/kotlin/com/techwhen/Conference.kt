@@ -1,7 +1,7 @@
 package com.techwhen
 
-import org.apache.log4j.Logger
-import java.util.*
+import java.util.Date
+
 
 data class Conference(
         val name: String,

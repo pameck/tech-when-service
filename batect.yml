@@ -4,18 +4,20 @@ containers:
   build-env:
     image: openjdk:8
     volumes:
-      - local: .
-        container: /usr/src/app
-        options: cached
-    working_directory: /usr/src/app
+      - .:/code:cached
+      - .gradle-cache:/home/container-user/.gradle:cached
+    working_directory: /code
+    environment:
+      - GRADLE_OPTS=-Dorg.gradle.daemon=false
+    run_as_current_user:
+      enabled: true
+      home_directory: /home/container-user
 
   deploy-env:
     build_directory: deploy-env
     volumes:
-      - local: .
-        container: /usr/src/app
-        options: cached
-    working_directory: /usr/src/app
+      - .:/code:cached
+    working_directory: /code
 
 tasks:
   test:
@@ -40,3 +42,5 @@ tasks:
       environment:
         - AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID
         - AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
+    prerequisites:
+      - build

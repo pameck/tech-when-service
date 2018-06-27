@@ -7,15 +7,14 @@ import org.jetbrains.spek.api.dsl.describe
 import org.jetbrains.spek.api.dsl.it
 import org.jetbrains.spek.api.dsl.on
 
-object EventSpec : Spek({
-    describe("an event") {
-        val event = Event()
+object ConferenceRepositorySpec : Spek({
+    describe("conference repository") {
 
-        on("doing something") {
-            val result = event.doSomething()
+        on("finding all") {
+            val result = ConferenceRepository.findAll()
 
-            it("returns true") {
-                assertThat(result, equalTo(true))
+            it("returns a list of conferences") {
+                assertThat(result.size, equalTo(1))
             }
         }
     }
