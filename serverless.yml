@@ -16,3 +16,4 @@ functions:
       - http:
           path: conferences
           method: get
+          cors: true

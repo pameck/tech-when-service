@@ -14,6 +14,8 @@ class Handler : RequestHandler<Map<String, Any>, ApiGatewayResponse> {
 
         val headers = HashMap<String, String>()
         headers["Content-Type"] = "application/json"
+        headers["Access-Control-Allow-Origin"] = "*"
+        headers["Access-Control-Allow-Credentials"] = "true"
 
         return ApiGatewayResponse(
                 200,
